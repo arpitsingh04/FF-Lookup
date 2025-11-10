@@ -28,23 +28,25 @@
 }
 
 .avatar-root { 
-  display:flex; 
-  gap:20px; 
-  align-items:center;
+  display: flex; 
+  gap: 20px; 
+  align-items: center;
   margin-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .avatar-circle {
-  width:130px; 
-  height:130px; 
-  border-radius:50%;
-  display:flex; 
-  align-items:center; 
-  justify-content:center;
+  width: 120px; 
+  height: 120px; 
+  border-radius: 50%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: #fff; 
-  font-weight:900; 
-  font-size:42px;
+  font-weight: 900; 
+  font-size: 40px;
   letter-spacing: 2px;
   position: relative;
   box-shadow: 
@@ -56,6 +58,7 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   animation: avatarPulse 3s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 .avatar-circle::before {
@@ -104,16 +107,28 @@
   transform: translateY(-2px);
 }
 
-@media(max-width:480px){
+@media(max-width: 640px){
   .avatar-circle { 
-    width:100px; 
-    height:100px; 
-    font-size:28px;
+    width: 100px; 
+    height: 100px; 
+    font-size: 32px;
   }
   .avatar-root {
     gap: 16px;
   }
+}
+
+@media(max-width: 480px){
+  .avatar-circle { 
+    width: 90px; 
+    height: 90px; 
+    font-size: 28px;
+  }
+  .avatar-root {
+    gap: 14px;
+  }
   .avatar-id {
     font-size: 12px;
+    padding: 5px 10px;
   }
 }

@@ -10,21 +10,32 @@
   -webkit-text-size-adjust: 100%;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html, body, #root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  width: 100vw;
+  max-width: 100%;
 }
 
 /* Custom scrollbar for webkit browsers */

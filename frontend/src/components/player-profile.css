@@ -34,11 +34,11 @@
 }
 
 .profile-left {
-  width:100%;
+  width: 100%;
   background: 
     linear-gradient(135deg, rgba(255, 56, 92, 0.05) 0%, rgba(0, 245, 255, 0.05) 100%),
     linear-gradient(180deg, #0a0e1a 0%, #050810 100%);
-  padding: 28px;
+  padding: 24px;
   border-radius: 20px;
   color: #e2e8f0;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -49,6 +49,7 @@
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
+  box-sizing: border-box;
 }
 
 .profile-left::before {
@@ -73,8 +74,10 @@
 }
 
 .profile-right { 
-  margin-top:20px;
+  margin-top: 20px;
   animation: profileSlideIn 0.6s ease-out 0.15s backwards;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .basic { 
@@ -220,7 +223,7 @@
 .info-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 10px;
 }
 
 .info-item {
@@ -268,7 +271,7 @@
 .clothes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 
 .clothing-item {
@@ -356,9 +359,18 @@
   .profile-left { width: 100%; }
 }
 
-@media(max-width: 640px){
+@media(max-width: 768px){
   .profile-left {
     padding: 20px;
+  }
+  .clothes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  }
+}
+
+@media(max-width: 640px){
+  .profile-left {
+    padding: 18px;
   }
   .badges, .timestamps {
     gap: 8px;
@@ -369,7 +381,7 @@
   }
   .info-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 8px;
   }
   .section-header {
     font-size: 14px;
@@ -379,6 +391,14 @@
   }
   .info-value {
     font-size: 14px;
+  }
+  .clothes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+  .clothing-image {
+    width: 70px;
+    height: 70px;
   }
 }
 

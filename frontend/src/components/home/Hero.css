@@ -1,21 +1,23 @@
 /* Hero Section Styles */
 .hero {
-  padding: 100px 24px 80px;
+  padding: 120px 0 80px;
   background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));
   position: relative;
   overflow: hidden;
   min-height: 70vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
   animation: heroGlow 8s ease-in-out infinite;
 }
@@ -26,12 +28,12 @@
 }
 
 .hero-container {
-  max-width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 0 40px;
+  padding: 0 24px;
 }
 
 .hero-content {
@@ -41,6 +43,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 @keyframes heroFadeIn {
@@ -90,10 +93,11 @@
 .hero-search-form {
   display: flex;
   gap: 16px;
-  max-width: 800px;
+  max-width: 700px;
   width: 100%;
   margin: 0 auto 40px;
   align-items: stretch;
+  justify-content: center;
 }
 
 .search-input-wrapper {
@@ -145,7 +149,7 @@
 }
 
 .search-button {
-  padding: 18px 36px;
+  padding: 18px 32px;
   font-size: 15px;
   font-weight: 800;
   text-transform: uppercase;
@@ -162,7 +166,7 @@
   gap: 10px;
   white-space: nowrap;
   box-shadow: 0 4px 12px rgba(0, 245, 255, 0.3);
-  min-width: 200px;
+  min-width: 160px;
 }
 
 .search-button:hover:not(:disabled) {
@@ -224,8 +228,12 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .hero {
-    padding: 80px 16px 60px;
+    padding: 100px 20px 60px;
     min-height: auto;
+  }
+
+  .hero-container {
+    padding: 0 16px;
   }
 
   .hero-search-form {
@@ -233,10 +241,14 @@
     gap: 12px;
   }
 
+  .search-input {
+    padding: 16px 20px 16px 52px;
+  }
+
   .search-button {
     justify-content: center;
     width: 100%;
-    padding: 20px 32px;
+    padding: 18px 32px;
     min-width: auto;
   }
 
