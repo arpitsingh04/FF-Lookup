@@ -1,0 +1,129 @@
+/* About Section */
+.about-section {
+  padding: 80px 24px;
+  background: linear-gradient(135deg, rgba(5, 8, 16, 0.5), rgba(15, 23, 42, 0.5));
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 2px solid rgba(0, 245, 255, 0.2);
+  padding: 48px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+
+.about-icon {
+  font-size: 42px;
+  color: var(--secondary);
+  filter: drop-shadow(0 4px 12px rgba(0, 245, 255, 0.4));
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 20px 0;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.about-feature-item {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.about-feature-item:hover {
+  border-color: var(--secondary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 245, 255, 0.2);
+}
+
+.feature-item-icon {
+  font-size: 32px;
+  color: var(--primary);
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(255, 56, 92, 0.4));
+}
+
+.about-feature-item h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 800;
+}
+
+.about-feature-item p {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.about-disclaimer {
+  margin-top: 40px;
+  padding: 24px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+}
+
+.about-disclaimer p {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.about-disclaimer strong {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 60px 16px;
+  }
+
+  .about-container {
+    padding: 32px 24px;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-feature-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .about-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}

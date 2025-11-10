@@ -43,13 +43,27 @@ export default function PlayerStats({ player }) {
       {rankingStats.length === 0 && (
         <div style={{ 
           textAlign: 'center', 
-          padding: '40px 20px', 
-          color: '#64748b',
+          padding: '60px 20px', 
+          color: 'rgba(255, 255, 255, 0.6)',
           fontSize: '15px'
         }}>
-          <div style={{ fontSize: '48px', marginBottom: '16px' }}>📊</div>
-          <p>Limited statistics available for this player.</p>
-          <p style={{ fontSize: '13px', marginTop: '8px' }}>
+          <div style={{ 
+            fontSize: '64px', 
+            marginBottom: '20px',
+            filter: 'drop-shadow(0 0 20px rgba(0, 245, 255, 0.3))'
+          }}>📊</div>
+          <p style={{ 
+            fontSize: '18px', 
+            fontWeight: '700',
+            color: '#fff',
+            marginBottom: '12px',
+            textShadow: '0 0 10px rgba(0, 245, 255, 0.3)'
+          }}>Limited statistics available for this player.</p>
+          <p style={{ 
+            fontSize: '14px', 
+            marginTop: '8px',
+            color: 'rgba(255, 255, 255, 0.5)'
+          }}>
             The player may have privacy settings enabled or be new to the game.
           </p>
         </div>

@@ -44,6 +44,43 @@ app.get('/api/player/:uid', async (req, res) => {
   });
 });
 
+// Image proxy endpoint for Free Fire item images
+app.get('/api/item-image/:itemId', async (req, res) => {
+  const { itemId } = req.params;
+  
+  // List of possible CDN URLs to try
+  const imageUrls = [
+    `https://www.dl.cdn.freefireofficial.com/icons/${itemId}.png`,
+    `https://freefiremobile-a.akamaihd.net/common/web_event/official/images/item/${itemId}.png`,
+    `https://freefiremobile-a.akamaihd.net/ffwebsite/images/item/${itemId}.png`,
+    `https://freefiremobile-a.akamaihd.net/ffwebsite/images/playeritems/${itemId}.png`
+  ];
+  
+  // Try each URL
+  for (const url of imageUrls) {
+    try {
+      const response = await axios.get(url, {
+        responseType: 'arraybuffer',
+        timeout: 5000,
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+      });
+      
+      // Success! Send the image
+      res.set('Content-Type', 'image/png');
+      res.set('Cache-Control', 'public, max-age=86400'); // Cache for 24 hours
+      return res.send(response.data);
+    } catch (error) {
+      // Try next URL
+      continue;
+    }
+  }
+  
+  // All URLs failed, return 404
+  res.status(404).json({ error: 'Image not found' });
+});
+
 app.listen(PORT, () => {
   console.log(`🚀 Backend running on port ${PORT}`);
 });

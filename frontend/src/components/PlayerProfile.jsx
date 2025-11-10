@@ -232,10 +232,27 @@ export default function PlayerProfile({ player, uid }) {
                                   itemId.toString().startsWith('207') ? '🎒 Backpack' :
                                   '👔 Outfit'
                   
+                  // Use our backend proxy to fetch images
+                  const imageUrl = `http://localhost:5000/api/item-image/${itemId}`
+                  
                   return (
                     <div key={idx} className="clothing-item" title={`${itemType} - ID: ${itemId}`}>
                       <div className="clothing-image">
-                        <span style={{fontSize: '32px'}}>{itemType.split(' ')[0]}</span>
+                        <span className="emoji-fallback" style={{fontSize: '32px', zIndex: 0}}>{itemType.split(' ')[0]}</span>
+                        <img 
+                          src={imageUrl}
+                          alt={`${itemType} - ${itemId}`}
+                          style={{position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', zIndex: 1}}
+                          onLoad={(e) => {
+                            // Image loaded successfully, hide the emoji
+                            const emoji = e.target.parentElement.querySelector('.emoji-fallback')
+                            if (emoji) emoji.style.display = 'none'
+                          }}
+                          onError={(e) => {
+                            // Image failed to load, hide it and show emoji fallback
+                            e.target.style.display = 'none'
+                          }}
+                        />
                         <div className="item-id">#{itemId}</div>
                       </div>
                       <div className="clothing-name">{itemType.split(' ')[1]}</div>
